@@ -1,0 +1,2 @@
+SELECT zaposleni, nekretnina, ne.povrsina, Cena_po_kvadratu, Cena_po_kvadratu*ne.Povrsina as ukupno, ((Cena_po_kvadratu*ne.Povrsina*3/100)) as provizija, (((Cena_po_kvadratu*ne.Povrsina*3/100))*20/100) as 'Provizija zaposlenog'	
+FROM prodaja inner join stavke_prodaje sp on sp.IDProdaje = prodaja.IDevidencija_prodaje left join nekretnina ne on sp.Nekretnina = ne.IDnekretnina where zaposleni=1 group by nekretnina
